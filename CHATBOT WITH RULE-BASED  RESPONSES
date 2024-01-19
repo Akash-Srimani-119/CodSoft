@@ -1,0 +1,82 @@
+import subprocess
+import time
+import datetime
+import wikipedia
+import webbrowser
+import os
+import winshell
+import operator
+
+
+def wishMe():
+    hour = datetime.datetime.now().hour
+    if hour>=0 and hour<12:
+        print("Good Morning!")
+
+    elif hour>=12 and hour<18:
+        print("Good Afternoon!")   
+
+    else:
+        print("Good Evening!")  
+
+    print("I am Liza Sir. Please tell me how may I help you")   
+    
+
+if __name__== "__main__":
+    wishMe()
+    while True:
+        print("I'm listning...")
+        query=input()
+        
+        if 'wikipedia' in query:
+            print('Searching Wikipedia...')
+            query = query.replace("wikipedia", "")
+            results = wikipedia.summary(query, sentences=2)
+            print("According to Wikipedia")
+            print(results)
+            
+        elif 'open youtube' in query:
+            print("opening youtube...")
+            webbrowser.open("youtube.com")
+            
+        elif 'open google' in query:
+            webbrowser.open("google.com")
+
+        elif 'open stackoverflow' in query:
+            webbrowser.open("stackoverflow.com")
+            
+        elif 'the time' in query:
+            strTime = datetime.datetime.now().strftime("%H:%M:%S")    
+            print("Sir, the time is", {strTime})
+            
+        elif 'date' in query:
+            today_date=datetime.datetime.today()
+            print("Sir, the date is", {today_date})
+            
+        elif 'terminate yourself' in query:
+            print("Terminating in 3 seconds")           
+            print('1')           
+            print('2')
+            print('3')
+            print('System closed')
+            exit()
+            
+        elif 'how are you' in query:            
+            print("I am fine, Thank you")            
+            print("How are you , sir?")
+
+        elif 'fine' in query or "good" in query:            
+            print("It's good to know that your fine")
+
+        elif 'not good' in query :            
+            print("Take care sir")
+            
+        elif 'joke' in query:
+            print(pyjokes.get_joke())
+            
+        elif "where is" in query:
+            query = query.replace("where is", "")
+            location = query
+            print("User asked to Locate")
+            print(location)
+            webbrowser.open("https://www.google.nl/maps/place/" + location + "")
