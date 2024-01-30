@@ -6,7 +6,7 @@ import webbrowser
 import os
 import winshell
 import operator
-
+import pyjokes
 
 def wishMe():
     hour = datetime.datetime.now().hour
